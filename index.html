@@ -9,14 +9,46 @@
     <script>
         function playRound(userChoice, computerChoice) {
             //evaluate both userChoice and computerChoice and return winner
-            if (userChoice == computer)
-        }
+            userChoice = getUserChoice();
+            computerChoice = getComputerChoice();
+            console.log(`UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`)
 
+            if (userChoice === computerChoice) {
+                console.log("Nobody wins");
+            }
+            
+            else if (userChoice === "rock" && computerChoice === "paper") {
+                console.log("You loose!");
+            }
+
+            else if (userChoice === "rock" && computerChoice === "scissors") {
+                console.log("You win!");
+            }
+
+            else if (userChoice === "paper" && computerChoice === "rock") {
+                console.log("You win!")
+            }
+
+           else if (userChoice === "paper" && computerChoice === "scissors") {
+                console.log("You loose!");
+            }
+
+            else if (userChoice === "scissors" && computerChoice === "rock") {
+                console.log("You loose!");
+            }
+
+            else {
+                console.log("You win!");
+            }
+        
+        }
+        
         //get userChoice by prompt
         function getUserChoice() {
             let userChoice = prompt("What will it be? Rock, paper or Scissors?");
             userChoice = userChoice.toLowerCase();
-            console.log(userChoice);
+            return(userChoice);
+            console.log(`UserChoice after gathering function: ${userChoice}`);
         }
             
         //determine computerChoice based on random number
@@ -35,8 +67,8 @@
             else {
                 computerChoice = "paper";
             }
-
-            console.log(computerChoice);
+            return(computerChoice);
+            console.log(`ComputerChoice after determination: ${computerChoice}`);
         }
     </script>
 </body>
