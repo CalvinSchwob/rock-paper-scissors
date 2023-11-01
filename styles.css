@@ -1,0 +1,34 @@
+/* * {
+    border: 2px red solid;
+} */
+
+h1 {
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 100px;
+    margin: 20px;
+}
+
+h2 {
+    font-size: 75px;
+    margin: 20px;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+img {
+    width: 100% ;
+    height: auto;
+}
+
+.button {
+    background-color: rgb(196, 196, 196);
+    width: 200px;
+    height: auto;
+    border-radius: 40px;
+    flex-shrink: 1;
+}
