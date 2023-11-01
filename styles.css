@@ -1,10 +1,13 @@
-/* * {
-    border: 2px red solid;
-} */
-
+@font-face {
+    font-family: Space Grotesk;
+    src: url(./fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+* {
+    font-family: Space Grotesk;
+}
 h1 {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     font-size: 100px;
     margin: 20px;
 }
@@ -27,8 +30,43 @@ img {
 
 .button {
     background-color: rgb(196, 196, 196);
-    width: 200px;
+    width: 300px;
     height: auto;
     border-radius: 40px;
     flex-shrink: 1;
+}
+
+.scoreboard, .score {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Black line between scores */
+hr {
+    height: 10vh;
+    width: .25vw;
+    border-width: 0;
+    color: #000;
+    background-color: #000;
+}
+
+.score-user, .score-computer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3 {
+    margin: 0px;
+    font-size: 40px;
+}
+
+.winner h2{
+    font-size: 125px;
+    font-family: space-grot
+}
+
+.user-score, .computer-score{
+    display: flex;
+    justify-content: center;
 }
