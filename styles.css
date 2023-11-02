@@ -5,17 +5,18 @@
 * {
     font-family: Space Grotesk;
 }
-h1 {
+/* h1 {
     display: flex;
     flex-wrap: wrap;
     font-size: 100px;
     margin: 20px;
-}
+    flex-shrink: 1;
+} */
 
-h2 {
+/* h2 {
     font-size: 75px;
     margin: 20px;
-}
+} */
 
 .buttons {
     margin-top: 40px;
@@ -36,37 +37,22 @@ img {
     flex-shrink: 1;
 }
 
-.scoreboard, .score {
+.scoreboard {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-shrink: 1;
 }
 
-/* Black line between scores */
-hr {
-    height: 10vh;
-    width: .25vw;
-    border-width: 0;
-    color: #000;
-    background-color: #000;
-}
-
-.score-user, .score-computer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 h3 {
     margin: 0px;
     font-size: 40px;
 }
 
-.winner h2{
-    font-size: 125px;
-    font-family: space-grot
-}
-
-.user-score, .computer-score{
+.scoreboard-left, .scoreboard-right {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
