@@ -5,6 +5,8 @@
 
 * {
     font-family: Space Grotesk;
+    zoom: 106%;
+    color: white;
 }
 
 .container {
@@ -12,4 +14,31 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+body {
+    background-image: linear-gradient(135deg, #000, #898989);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+button {
+    color: black;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 20%;
+    border: none;
+    background: whitesmoke
+}
+
+button:hover {
+    background-color:rgb(197, 197, 197);
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
