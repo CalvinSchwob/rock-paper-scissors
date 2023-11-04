@@ -5,7 +5,7 @@ let paper = document.getElementById(`paper`);
 let scissors = document.getElementById(`scissors`);
 let userScoreboard = document.getElementById("userScoreboard");
 let computerScoreboard = document.getElementById("computerScoreboard")
-
+let protocol = document.getElementById("protocol");
 
 
 rock.addEventListener("click", () => playRound("rock"));
@@ -17,32 +17,31 @@ scissors.addEventListener("click", () => playRound("scissors"));
     function playRound(userChoice) {
         //evaluate both userChoice and computerChoice and return winner
         computerChoice = getComputerChoice();
-        console.log(`UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`)
+        // protocol.textContent = `UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`;
 
         if (userChoice === computerChoice) {
-            userScore++;
-            console.log(`Nobody wins | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `Nobody wins`;
         }
 
         else if (userChoice === "rock" && computerChoice === "paper") {
             computerScore++;
-            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You loose!`;
         }
 
         else if (userChoice === "rock" && computerChoice === "scissors") {
             userScore++;
-            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You win!`;
         }
 
         else if (userChoice === "paper" && computerChoice === "rock") {
             userScore++;
-            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`)
+            protocol.textContent = `You win!`;
             
         }
 
         else if (userChoice === "paper" && computerChoice === "scissors") {
             computerScore++;
-            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
         }
 
         else if (userChoice === "scissors" && computerChoice === "rock") {
