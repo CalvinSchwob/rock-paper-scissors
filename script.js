@@ -1,71 +1,60 @@
 let userScore = 0;
 let computerScore = 0;
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissors = document.getElementById("scissors");
+
+rock.addEventListener("click", playRound("rock"));
+paper.addEventListener("click", playRound("paper"));
+scissors.addEventListener("click", playRound("scissors"));
+
     // make the game into a 5 round game with score etc.
-    function game() {
-        for (let i = 0; i < 5; i++) {
-            playRound();
+    
+    function playRound(userChoice) {
+        //evaluate both userChoice and computerChoice and return winner
+        computerChoice = getComputerChoice();
+        console.log(`UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`)
+
+        if (userChoice === computerChoice) {
+            userScore++;
+            console.log(`Nobody wins | Your Score: ${userScore} : Computers Score ${computerScore}`);
         }
 
-        if (userScore > computerScore) {
-            return(`Congrats! You won this game`);
+        else if (userChoice === "rock" && computerChoice === "paper") {
+            computerScore++;
+            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
         }
+
+        else if (userChoice === "rock" && computerChoice === "scissors") {
+            userScore++;
+            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+        }
+
+        else if (userChoice === "paper" && computerChoice === "rock") {
+            userScore++;
+            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`)
+            
+        }
+
+        else if (userChoice === "paper" && computerChoice === "scissors") {
+            computerScore++;
+            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+        }
+
+        else if (userChoice === "scissors" && computerChoice === "rock") {
+            computerScore++;
+            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+        }
+
         else {
-            return(`You loose! Try again`);
+            userScore++;
+            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
         }
-    }
-    
-        function playRound(userChoice, computerChoice) {
-            //evaluate both userChoice and computerChoice and return winner
-            userChoice = getUserChoice();
-            computerChoice = getComputerChoice();
-            console.log(`UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`)
-
-            if (userChoice === computerChoice) {
-                userScore++;
-                console.log(`Nobody wins | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-    
-            else if (userChoice === "rock" && computerChoice === "paper") {
-                computerScore++;
-                console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-
-            else if (userChoice === "rock" && computerChoice === "scissors") {
-                userScore++;
-                console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-
-            else if (userChoice === "paper" && computerChoice === "rock") {
-                userScore++;
-                console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`)
-                
-            }
-
-            else if (userChoice === "paper" && computerChoice === "scissors") {
-                computerScore++;
-                console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-
-            else if (userChoice === "scissors" && computerChoice === "rock") {
-                computerScore++;
-                console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-
-            else {
-                userScore++;
-                console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
-            }
-        }
+    }     
         
     
 
-    //get userChoice by prompt
-    function getUserChoice() {
-        let userChoice = prompt("What will it be? Rock, paper or Scissors?");
-        userChoice = userChoice.toLowerCase();
-        return(userChoice);
-        console.log(`UserChoice after gathering function: ${userChoice}`);
-    }
+
     
     //determine computerChoice based on random number
     function getComputerChoice() {
