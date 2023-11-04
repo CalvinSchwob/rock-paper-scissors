@@ -1,12 +1,12 @@
 let userScore = 0;
 let computerScore = 0;
-let rock = document.getElementById("rock");
-let paper = document.getElementById("paper");
-let scissors = document.getElementById("scissors");
+let rock = document.getElementById(`rock`);
+let paper = document.getElementById(`paper`);
+let scissors = document.getElementById(`scissors`);
 
-rock.addEventListener("click", playRound("rock"));
-paper.addEventListener("click", playRound("paper"));
-scissors.addEventListener("click", playRound("scissors"));
+rock.addEventListener("click", () => playRound("rock"));
+paper.addEventListener("click", () => playRound("paper"));
+scissors.addEventListener("click", () => playRound("scissors"));
 
     // make the game into a 5 round game with score etc.
     
