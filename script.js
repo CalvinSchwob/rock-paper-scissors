@@ -3,6 +3,10 @@ let computerScore = 0;
 let rock = document.getElementById(`rock`);
 let paper = document.getElementById(`paper`);
 let scissors = document.getElementById(`scissors`);
+let userScoreboard = document.getElementById("userScoreboard");
+let computerScoreboard = document.getElementById("computerScoreboard")
+
+
 
 rock.addEventListener("click", () => playRound("rock"));
 paper.addEventListener("click", () => playRound("paper"));
@@ -50,6 +54,8 @@ scissors.addEventListener("click", () => playRound("scissors"));
             userScore++;
             console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
         }
+        userScoreboard.textContent = userScore;
+        computerScoreboard.textContent = computerScore;
     }     
         
     
