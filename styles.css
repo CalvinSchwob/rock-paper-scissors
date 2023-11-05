@@ -2,10 +2,13 @@
     font-family: Space Grotesk;
     src: url(./fonts/SpaceGrotesk-VariableFont_wght.ttf);
 }
+body {
+    overflow: hidden;
+}
 
 * {
     font-family: Space Grotesk;
-    zoom: 106%;
+    zoom: 103%;
     color: white;
 }
 
@@ -58,4 +61,24 @@ img {
     height: 100px;
     background: white;
     border-radius: 20px;;
+}
+
+.winnerScoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    display: none;
 }

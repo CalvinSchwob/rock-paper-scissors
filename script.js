@@ -8,6 +8,8 @@ let computerScoreboard = document.getElementById("computerScoreboard")
 let protocol = document.getElementById("protocol");
 let userChoiceDisplay = document.getElementById("userChoiceDisplay");
 let computerChoiceDisplay = document.getElementById("computerChoiceDisplay");
+let overlay = document.getElementById("overlay");
+let restartButton = document.getElementById("restartButton");
 
 let userChoiceImage = document.createElement("img");
 userChoiceImage.style.width = "50px";
@@ -24,6 +26,10 @@ computerChoiceImage.style.backgroundColor ="white";
 computerChoiceImage.style.borderRadius = "10px";
 computerChoiceImage.src = "images/cpu_911514.png";
 computerChoiceDisplay.appendChild(computerChoiceImage);
+
+document.addEventListener("DOMContentLoaded", () => {
+    restartButton.addEventListener("click", restartGame);
+});
 
 rock.addEventListener("click", () => playRound("rock"));
 paper.addEventListener("click", () => playRound("paper"));
@@ -64,15 +70,17 @@ scissors.addEventListener("click", () => playRound("scissors"));
 
         else if (userChoice === "scissors" && computerChoice === "rock") {
             computerScore++;
-            console.log(`You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You loose!`;
         }
 
         else {
             userScore++;
-            console.log(`You win! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You win!`;
         }
         userScoreboard.textContent = userScore;
         computerScoreboard.textContent = computerScore;
+        userWinnerScore.textContent = userScore;
+        computerWinnerScore.textContent = computerScore;
 
         //visual choice representation:
 
@@ -81,40 +89,64 @@ scissors.addEventListener("click", () => playRound("scissors"));
             userChoiceImage.alt = "Rock";
         }
 
-        if (userChoice === "paper") {
+        else if (userChoice === "paper") {
             userChoiceImage.src = "images/icons8-ganze-hand-96.png"
-            userChoice.alt = "Paper";
+            userChoiceImage.alt = "Paper";
         }
 
-        if (userChoice === "scissors") {
+        else if (userChoice === "scissors") {
             userChoiceImage.src = "images/icons8-hand_-schere-96.png"
             userChoiceImage.alt = "Scissors";
         }
 
-        if (computerChoice === "rock") {
+        if (computerChoice == "rock") {
             computerChoiceImage.src = "images/icons8-wütend-faust-96.png"
             computerChoiceImage.alt = "Rock";
         }
 
-        if (computerChoice === "paper") {
+        else if (computerChoice == "paper") {
             computerChoiceImage.src = "images/icons8-ganze-hand-96.png";
             computerChoiceImage.alt = "Paper";
         }
 
-        if (computerChoice === "scissors") {
+        else if (computerChoice == "scissors") {
             computerChoiceImage.srg = "images/icons8-hand_-schere-96.png";
             computerChoiceImage.alt = "Scissors";
         }
-    }     
-        
+
+        if (userScore === 5) {
+        protocol.textContent = "Winner Trigger";
+        overlay.style.display = "block";
+    }
+
+    if (computerScore === 5) {
+        overlay.style.display = "block";
+    }
+    }
+
+    function openOverlay() {
+        overlay.style.display = "block";
+    }
     
 
+    function closeOverlay () {
+        overlay.style.display = "none";
+    }
 
+    function restartGame () {
+        userScore = 0;
+        computerScore = 0;
+        protocol.textContent = "Choose Your Weapon And Beat The Computer!";
+        userChoiceImage.src = "images/user_8647311.png";
+        computerChoiceImage.src = "images/cpu_911514.png"
+        userScoreboard.textContent = 0;
+        computerScoreboard.textContent = 0;
+        closeOverlay();
+    }
     
     //determine computerChoice based on random number
     function getComputerChoice() {
         let computerChoice = Math.random()*100;
-        console.log(computerChoice);
 
         if (computerChoice < 33) {
             computerChoice = "rock"
@@ -128,5 +160,6 @@ scissors.addEventListener("click", () => playRound("scissors"));
             computerChoice = "paper";
         }
         return(computerChoice);
-        console.log(`ComputerChoice after determination: ${computerChoice}`);
-}
+        // console.log(`ComputerChoice after determination: ${computerChoice}`);
+    
+    }
