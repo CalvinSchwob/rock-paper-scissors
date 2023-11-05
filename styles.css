@@ -42,3 +42,13 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.electionDisplay {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userChoiceDisplay, .computerChoiceDisplay {
+    margin: 10px;
+    width: 125px;
+}

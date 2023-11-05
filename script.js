@@ -6,6 +6,29 @@ let scissors = document.getElementById(`scissors`);
 let userScoreboard = document.getElementById("userScoreboard");
 let computerScoreboard = document.getElementById("computerScoreboard")
 let protocol = document.getElementById("protocol");
+let userChoiceDisplay = document.getElementById("userChoiceDisplay");
+let computerChoiceDisplay = document.getElementById("computerChoiceDisplay");
+
+//choice img creation
+
+//rock Choice Image
+let rockChoice = document.createElement("img");
+rockChoice.src = "./images/icons8-wütend-faust-96.png";
+rockChoice.alt = "Rock"
+rockChoice.class = "choiceImg";
+
+//paper Choice Image
+let paperChoice = document.createElement("img");
+paperChoice.src = "./images/icons8-ganze-hand-96.png";
+paperChoice.alt = "Paper";
+paperChoice.class = "choiceImg";
+
+//scissors Choice Image
+let scissorsChoice = document.createElement("img");
+scissorsChoice.scr = "./images/icons8-hand_-schere-96.png";
+scissorsChoice.alt = "Scissors";
+scissorsChoice.class = "choiceImg";
+
 
 
 rock.addEventListener("click", () => playRound("rock"));
@@ -15,6 +38,7 @@ scissors.addEventListener("click", () => playRound("scissors"));
     // make the game into a 5 round game with score etc.
     
     function playRound(userChoice) {
+        userChoiceDisplay.textContent = userChoice
         //evaluate both userChoice and computerChoice and return winner
         computerChoice = getComputerChoice();
         // protocol.textContent = `UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`;
@@ -26,6 +50,7 @@ scissors.addEventListener("click", () => playRound("scissors"));
         else if (userChoice === "rock" && computerChoice === "paper") {
             computerScore++;
             protocol.textContent = `You loose!`;
+
         }
 
         else if (userChoice === "rock" && computerChoice === "scissors") {
@@ -41,7 +66,7 @@ scissors.addEventListener("click", () => playRound("scissors"));
 
         else if (userChoice === "paper" && computerChoice === "scissors") {
             computerScore++;
-            protocol.textContent = `You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`);
+            protocol.textContent = `You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`;
         }
 
         else if (userChoice === "scissors" && computerChoice === "rock") {
@@ -55,6 +80,16 @@ scissors.addEventListener("click", () => playRound("scissors"));
         }
         userScoreboard.textContent = userScore;
         computerScoreboard.textContent = computerScore;
+
+        //visual choice representation:
+
+        if (userChoice === "rock") {
+            userChoiceDisplay.appendChild(rockChoice);
+        }
+
+        if (userChoice = "paper") {
+            userChoiceDisplay.appendChild(paperChoice);
+        }
     }     
         
     
