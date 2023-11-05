@@ -66,7 +66,7 @@ scissors.addEventListener("click", () => playRound("scissors"));
 
         else if (userChoice === "paper" && computerChoice === "scissors") {
             computerScore++;
-            protocol.textContent = `You loose! | Your Score: ${userScore} : Computers Score ${computerScore}`;
+            protocol.textContent = `You loose!`;
         }
 
         else if (userChoice === "scissors" && computerChoice === "rock") {
