@@ -9,27 +9,21 @@ let protocol = document.getElementById("protocol");
 let userChoiceDisplay = document.getElementById("userChoiceDisplay");
 let computerChoiceDisplay = document.getElementById("computerChoiceDisplay");
 
-//choice img creation
+let userChoiceImage = document.createElement("img");
+userChoiceImage.style.width = "50px";
+userChoiceImage.style.height = "50px";
+userChoiceImage.style.backgroundColor = "white";
+userChoiceImage.style.borderRadius = "10px";
+userChoiceImage.src = "images/user_8647311.png"
+userChoiceDisplay.appendChild(userChoiceImage);
 
-//rock Choice Image
-let rockChoice = document.createElement("img");
-rockChoice.src = "./images/icons8-wütend-faust-96.png";
-rockChoice.alt = "Rock"
-rockChoice.class = "choiceImg";
-
-//paper Choice Image
-let paperChoice = document.createElement("img");
-paperChoice.src = "./images/icons8-ganze-hand-96.png";
-paperChoice.alt = "Paper";
-paperChoice.class = "choiceImg";
-
-//scissors Choice Image
-let scissorsChoice = document.createElement("img");
-scissorsChoice.scr = "./images/icons8-hand_-schere-96.png";
-scissorsChoice.alt = "Scissors";
-scissorsChoice.class = "choiceImg";
-
-
+let computerChoiceImage = document.createElement("img");
+computerChoiceImage.style.width = "50px";
+computerChoiceImage.style.height = "50px";
+computerChoiceImage.style.backgroundColor ="white";
+computerChoiceImage.style.borderRadius = "10px";
+computerChoiceImage.src = "images/cpu_911514.png";
+computerChoiceDisplay.appendChild(computerChoiceImage);
 
 rock.addEventListener("click", () => playRound("rock"));
 paper.addEventListener("click", () => playRound("paper"));
@@ -38,9 +32,8 @@ scissors.addEventListener("click", () => playRound("scissors"));
     // make the game into a 5 round game with score etc.
     
     function playRound(userChoice) {
-        userChoiceDisplay.textContent = userChoice
         //evaluate both userChoice and computerChoice and return winner
-        computerChoice = getComputerChoice();
+        let computerChoice = getComputerChoice();
         // protocol.textContent = `UserChoice = ${userChoice}, ComputerChoice:${computerChoice}`;
 
         if (userChoice === computerChoice) {
@@ -84,11 +77,33 @@ scissors.addEventListener("click", () => playRound("scissors"));
         //visual choice representation:
 
         if (userChoice === "rock") {
-            userChoiceDisplay.appendChild(rockChoice);
+            userChoiceImage.src = "images/icons8-wütend-faust-96.png";
+            userChoiceImage.alt = "Rock";
         }
 
-        if (userChoice = "paper") {
-            userChoiceDisplay.appendChild(paperChoice);
+        if (userChoice === "paper") {
+            userChoiceImage.src = "images/icons8-ganze-hand-96.png"
+            userChoice.alt = "Paper";
+        }
+
+        if (userChoice === "scissors") {
+            userChoiceImage.src = "images/icons8-hand_-schere-96.png"
+            userChoiceImage.alt = "Scissors";
+        }
+
+        if (computerChoice === "rock") {
+            computerChoiceImage.src = "images/icons8-wütend-faust-96.png"
+            computerChoiceImage.alt = "Rock";
+        }
+
+        if (computerChoice === "paper") {
+            computerChoiceImage.src = "images/icons8-ganze-hand-96.png";
+            computerChoiceImage.alt = "Paper";
+        }
+
+        if (computerChoice === "scissors") {
+            computerChoiceImage.srg = "images/icons8-hand_-schere-96.png";
+            computerChoiceImage.alt = "Scissors";
         }
     }     
         

@@ -52,3 +52,10 @@ img {
     margin: 10px;
     width: 125px;
 }
+
+.choiceImg {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 20px;;
+}
