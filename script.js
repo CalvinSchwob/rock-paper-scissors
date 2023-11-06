@@ -99,18 +99,18 @@ scissors.addEventListener("click", () => playRound("scissors"));
             userChoiceImage.alt = "Scissors";
         }
 
-        if (computerChoice == "rock") {
+        if (computerChoice === "rock") {
             computerChoiceImage.src = "images/icons8-wütend-faust-96.png"
             computerChoiceImage.alt = "Rock";
         }
 
-        else if (computerChoice == "paper") {
+        else if (computerChoice === "paper") {
             computerChoiceImage.src = "images/icons8-ganze-hand-96.png";
             computerChoiceImage.alt = "Paper";
         }
 
-        else if (computerChoice == "scissors") {
-            computerChoiceImage.srg = "images/icons8-hand_-schere-96.png";
+        else if (computerChoice === "scissors") {
+            computerChoiceImage.src = "images/icons8-hand_-schere-96.png";
             computerChoiceImage.alt = "Scissors";
         }
 
