@@ -10,6 +10,8 @@ let userChoiceDisplay = document.getElementById("userChoiceDisplay");
 let computerChoiceDisplay = document.getElementById("computerChoiceDisplay");
 let overlay = document.getElementById("overlay");
 let restartButton = document.getElementById("restartButton");
+let userWinnerScoreboard = document.getElementById("userWinnerScoreboard");
+let computerWinnerScoreboard = document.getElementById("computerWinnerScoreboard");
 
 let userChoiceImage = document.createElement("img");
 userChoiceImage.style.width = "50px";
@@ -122,6 +124,16 @@ scissors.addEventListener("click", () => playRound("scissors"));
 
     if (computerScore === 5) {
         overlay.style.display = "block";
+    }
+
+    if (userScore === 5) {
+        userWinnerScoreboard.style.border = "2px white solid";
+        computerWinnerScoreboard.style.border = "none";
+    }
+
+    if (computerScore === 5) {
+        computerWinnerScoreboard.style.border = "2px white solid";
+        userWinnerScoreboard.style.border = "none";
     }
     }
 
