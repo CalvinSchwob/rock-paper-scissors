@@ -82,6 +82,7 @@ scissors.addEventListener("click", () => playRound("scissors"));
         userWinnerScore.textContent = userScore;
         computerWinnerScore.textContent = computerScore;
 
+
         //visual choice representation:
 
         if (userChoice === "rock") {
